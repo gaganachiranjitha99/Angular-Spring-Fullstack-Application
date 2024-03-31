@@ -1,1 +1,21 @@
-<p>post-customer works!</p>
+
+<div class="container">
+    <h2>POST NEW CUSTOMER</h2>
+    <form [formGroup]="postCustomerForm">
+  
+      <label for="name"> Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your name.." required formControlName="name">
+
+      <label for="email">email:</label>
+      <input type="text" id="email" name="email" placeholder="Your email.." required formControlName="email">
+
+      <label for="lname">phone:</label>
+      <input type="text" id="phone" name="phone" placeholder="Your telephone number.." required formControlName="phone">
+    
+  
+      <input type="submit" (click)="postCustomer()"value="POST">
+  
+    </form>
+  </div>
+
+
