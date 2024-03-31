@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CustomerService {
@@ -15,5 +17,9 @@ public class CustomerService {
     private final CustomerRepository customerRepository;
     public Customer postCustomer(Customer customer){
         return customerRepository.save(customer);
+    }
+
+    public List<Customer> getAllCustomer(){
+        return customerRepository.findAll();
     }
 }

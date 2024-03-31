@@ -5,14 +5,14 @@ import com.angularSpring.Spring.Crud.entity.Customer;
 import com.angularSpring.Spring.Crud.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class CustomerController {
 
     @Autowired
@@ -20,5 +20,10 @@ public class CustomerController {
     @PostMapping("/customer")
     public Customer postCustomer(@RequestBody Customer customer){
         return customerService.postCustomer(customer);
+    }
+
+    @GetMapping("/getcustomers")
+    private List<Customer> getAllCustomers(){
+        return customerService.getAllCustomer();
     }
 }
